@@ -41,26 +41,26 @@ extension ObservableType {
         }
     }
     
+    func flatMapLatest<A: AnyObject, O: ObservableType>(weak obj: A, selector: @escaping (A, Self.E) throws -> O) -> Observable<O.E> {
+        return flatMapLatest { [weak obj] value -> Observable<O.E> in
+            try obj.map { try selector($0, value).asObservable() } ?? .empty()
+        }
+    }
+    
+    func flatMapFirst<A: AnyObject, O: ObservableType>(weak obj: A, selector: @escaping (A, Self.E) throws -> O) -> Observable<O.E> {
+        return flatMapFirst { [weak obj] value -> Observable<O.E> in
+            try obj.map { try selector($0, value).asObservable() } ?? .empty()
+        }
+    }
+    
     func wrapAsObservable() -> Observable<Observable<Self.E>> {
         return Observable.just(self.asObservable())
     }
 }
 
-extension ObserverType {
-    
-    //    func combineIgnoreNil(_ observable: Observable) -> Observable<(Element.Wrapped, Element.Wrapped)> {
-    //        let some = Observable.combineLatest(self, observable)
-    //
-    ////        return Observable.combineLatest(self, observable).flatMap { (value, other) in
-    ////            guard let value = value, let other = other else {
-    ////                return Observable<(Element.Wrapped, Element.Wrapped)>.empty()
-    ////            }
-    ////            return Observable<(Element.Wrapped, Element.Wrapped)>.just((value, other))
-    ////        }
-    //        fatalError()
-    //    }
-    
-//    public static func combineIgnoreNil
-//        public static func combineLatest<O1, O2>(_ source1: O1, _ source2: O2) -> RxSwift.Observable<(O1.E, O2.E)> where O1 : ObservableType, O2 : ObservableType
+extension Observable {
+    static func timer(_ period: RxTimeInterval = 1.0) -> Observable<UInt64> {
+        return Observable<UInt64>.timer(0, period: period, scheduler: MainScheduler.instance)
+    }
 }
 

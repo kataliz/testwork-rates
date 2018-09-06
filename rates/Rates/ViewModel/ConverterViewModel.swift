@@ -39,7 +39,9 @@ class ConverterViewModel: IConverterViewModel {
     func transform(input: Input) -> Output {
         let select = input.didSelect.share(replay: 1)
         let selectCurrency = select.map( { $0.currency }).startWith("USD")
-        let rates = updateManager.configureBase(selectCurrency).share(replay: 1)
+        let timer = Observable<UInt64>.timer(1.0)
+        let rates = updateManager.configureBase(selectCurrency, timer: timer).share(replay: 1)
+        
         let viewModels = createViewModels(from: rates)
         
         let amountChanged = mergeOutputs(viewModels: viewModels, with: select)
