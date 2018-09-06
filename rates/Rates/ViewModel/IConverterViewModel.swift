@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RxCocoa
 import RxSwift
 
 protocol IConverterViewModel {
@@ -19,6 +18,6 @@ struct Input {
 }
 
 struct Output {
-    let convertAmounts: Observable<[ConvertAmountViewModel]>
+    let viewModels: Observable<[ConvertAmountViewModel]>
     let error: Observable<String>
 }

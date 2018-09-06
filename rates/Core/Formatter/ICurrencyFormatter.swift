@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ICurrencyFormatter {
+protocol ICurrencyFormatter: class {
     func formatt(inputed: String, currency: Currency) -> String
     func formatt(amount: Decimal, currency: Currency) -> String
     func amount(from formatted: String) -> Decimal?

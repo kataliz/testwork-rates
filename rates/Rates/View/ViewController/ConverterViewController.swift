@@ -44,12 +44,11 @@ class ConverterViewController: UIViewController {
     
     private func bindTable() {
         let input = Input(didSelect: table.rx.modelSelected(ConvertAmountViewModel.self).asObservable())
-        
         let output = viewModel.transform(input: input)
         
         output.error.subscribe(onNext: { _ in }).disposed(by: dispose)
         
-        output.convertAmounts.map { [AnimatableSectionModel(model: 0, items: $0)] }
+        output.viewModels.map { [AnimatableSectionModel(model: 0, items: $0)] }
             .bind(to: table.rx.items(dataSource: dataSource))
             .disposed(by: dispose)
         

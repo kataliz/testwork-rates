@@ -17,6 +17,10 @@
 		85253E9B2140FEAF009BC33B /* IRxRatesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253E9A2140FEAF009BC33B /* IRxRatesService.swift */; };
 		85253E9D2140FEC7009BC33B /* RxRatesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253E9C2140FEC7009BC33B /* RxRatesService.swift */; };
 		85253E9F2141045E009BC33B /* Observable+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253E9E2141045E009BC33B /* Observable+helper.swift */; };
+		85253EA221411B3B009BC33B /* IConstructConverterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253EA121411B3B009BC33B /* IConstructConverterManager.swift */; };
+		85253EA421411BC4009BC33B /* ConstructConverterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253EA321411BC4009BC33B /* ConstructConverterManager.swift */; };
+		85253EA6214123B2009BC33B /* ICombineUserInputsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253EA5214123B2009BC33B /* ICombineUserInputsManager.swift */; };
+		85253EA82141266E009BC33B /* CombineUserInputsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253EA72141266E009BC33B /* CombineUserInputsManager.swift */; };
 		8594F927213BF9A100227106 /* NumberFormatter+reset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594F926213BF9A100227106 /* NumberFormatter+reset.swift */; };
 		8594F929213C082800227106 /* RatesUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594F928213C082800227106 /* RatesUpdateManager.swift */; };
 		8594F92B213C083A00227106 /* IRatesUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594F92A213C083A00227106 /* IRatesUpdateManager.swift */; };
@@ -89,6 +93,10 @@
 		85253E9A2140FEAF009BC33B /* IRxRatesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRxRatesService.swift; sourceTree = "<group>"; };
 		85253E9C2140FEC7009BC33B /* RxRatesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxRatesService.swift; sourceTree = "<group>"; };
 		85253E9E2141045E009BC33B /* Observable+helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+helper.swift"; sourceTree = "<group>"; };
+		85253EA121411B3B009BC33B /* IConstructConverterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IConstructConverterManager.swift; sourceTree = "<group>"; };
+		85253EA321411BC4009BC33B /* ConstructConverterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructConverterManager.swift; sourceTree = "<group>"; };
+		85253EA5214123B2009BC33B /* ICombineUserInputsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICombineUserInputsManager.swift; sourceTree = "<group>"; };
+		85253EA72141266E009BC33B /* CombineUserInputsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineUserInputsManager.swift; sourceTree = "<group>"; };
 		8594F926213BF9A100227106 /* NumberFormatter+reset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+reset.swift"; sourceTree = "<group>"; };
 		8594F928213C082800227106 /* RatesUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesUpdateManager.swift; sourceTree = "<group>"; };
 		8594F92A213C083A00227106 /* IRatesUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRatesUpdateManager.swift; sourceTree = "<group>"; };
@@ -209,13 +217,17 @@
 			path = Reactive;
 			sourceTree = "<group>";
 		};
-		8594F932213C5FD600227106 /* Managers */ = {
+		85253EA021411B17009BC33B /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				8594F92A213C083A00227106 /* IRatesUpdateManager.swift */,
 				8594F928213C082800227106 /* RatesUpdateManager.swift */,
+				85253EA121411B3B009BC33B /* IConstructConverterManager.swift */,
+				85253EA321411BC4009BC33B /* ConstructConverterManager.swift */,
+				85253EA5214123B2009BC33B /* ICombineUserInputsManager.swift */,
+				85253EA72141266E009BC33B /* CombineUserInputsManager.swift */,
 			);
-			path = Managers;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		85A233C72137E8B800D5DB20 /* Files */ = {
@@ -233,6 +245,7 @@
 		85A233C82137E8C000D5DB20 /* Rates */ = {
 			isa = PBXGroup;
 			children = (
+				85253EA021411B17009BC33B /* Manager */,
 				85A233F82138079000D5DB20 /* Model */,
 				85A233F72138078B00D5DB20 /* ViewModel */,
 				85A233F62138078500D5DB20 /* View */,
@@ -244,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				85253E90213FFDD7009BC33B /* Mock */,
-				8594F932213C5FD600227106 /* Managers */,
 				85A23410213929B200D5DB20 /* Currency */,
 				85A2340B2138216D00D5DB20 /* Helper */,
 				85A23408213820B200D5DB20 /* Formatter */,
@@ -356,8 +368,8 @@
 		85A233F72138078B00D5DB20 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				85A23406213817EA00D5DB20 /* ConverterViewModel.swift */,
 				8594F947213E764F00227106 /* IConverterViewModel.swift */,
+				85A23406213817EA00D5DB20 /* ConverterViewModel.swift */,
 				85A234022138146F00D5DB20 /* ConvertAmountViewModel.swift */,
 			);
 			path = ViewModel;
@@ -671,6 +683,7 @@
 				85A233EE2137FC3500D5DB20 /* ResourceInfo.swift in Sources */,
 				85A233FA21380DFE00D5DB20 /* ConvertAmountCell.swift in Sources */,
 				8594F940213D7A7900227106 /* NSObject+className.swift in Sources */,
+				85253EA82141266E009BC33B /* CombineUserInputsManager.swift in Sources */,
 				85A233EA2137F90900D5DB20 /* UBRate.swift in Sources */,
 				8594F93C213D783400227106 /* UITableView+helpers.swift in Sources */,
 				85A2340D213821C200D5DB20 /* CurrencyInfoService.swift in Sources */,
@@ -683,9 +696,11 @@
 				8594F93A213D072E00227106 /* TwoWayBinding.swift in Sources */,
 				85A233FF2138128000D5DB20 /* UILabel+style.swift in Sources */,
 				85A2341421398D3300D5DB20 /* ICurrencyFormatter.swift in Sources */,
+				85253EA6214123B2009BC33B /* ICombineUserInputsManager.swift in Sources */,
 				85A233D72137EE7700D5DB20 /* NetworkError.swift in Sources */,
 				85A233D02137EB5E00D5DB20 /* NetworkService.swift in Sources */,
 				8594F93E213D7A0E00227106 /* UITableView+register.swift in Sources */,
+				85253EA421411BC4009BC33B /* ConstructConverterManager.swift in Sources */,
 				85A2340A2138216200D5DB20 /* ICurrencyInfoService.swift in Sources */,
 				85253E9821405F8D009BC33B /* main.swift in Sources */,
 				85F2665F213E95B10074B9E8 /* Observable+helpers.swift in Sources */,
@@ -695,6 +710,7 @@
 				8594F92B213C083A00227106 /* IRatesUpdateManager.swift in Sources */,
 				8594F929213C082800227106 /* RatesUpdateManager.swift in Sources */,
 				85253E92213FFDE7009BC33B /* MockService.swift in Sources */,
+				85253EA221411B3B009BC33B /* IConstructConverterManager.swift in Sources */,
 				85A233E82137F88100D5DB20 /* UBRatesInfo.swift in Sources */,
 				85A233E22137F7E700D5DB20 /* IRatesInfo.swift in Sources */,
 				85253E9B2140FEAF009BC33B /* IRxRatesService.swift in Sources */,

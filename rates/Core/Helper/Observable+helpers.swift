@@ -58,8 +58,19 @@ extension ObservableType {
     }
 }
 
+extension ObservableType where E: Equatable {
+    func scanRearange(_ items: Observable<[E]>) -> Observable<[E]> {
+        return Observable.combineLatest(items, self.wrapAsObservable()).flatMap { (arguments) -> Observable<[E]> in
+            let (items, itemFirst) = arguments
+            return itemFirst.scan(items, accumulator: { (result, selected) in
+                return result.rarrangedAtStart(selected)
+            }).startWith(items)
+        }
+    }
+}
+
 extension Observable {
-    static func timer(_ period: RxTimeInterval = 1.0) -> Observable<UInt64> {
+    static func timer(_ period: RxTimeInterval) -> Observable<UInt64> {
         return Observable<UInt64>.timer(0, period: period, scheduler: MainScheduler.instance)
     }
 }
