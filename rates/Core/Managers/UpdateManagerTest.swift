@@ -58,6 +58,10 @@ class UpdateManagerTest: XCTestCase {
             currency.onNext("USD")
         }
         
+        scheduler.scheduleAt(210) {
+            self.ratesService.loadRequestSubject.onError(NetworkError.failed)
+        }
+        
         let results = scheduler.start {
             self.updateManager.configureBase(currency.asObservable(), timer: timer.asObservable())
         }
