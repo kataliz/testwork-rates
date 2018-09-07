@@ -1,5 +1,5 @@
 //
-//  ConvertAmountViewModel.swift
+//  ConvertCellViewModel.swift
 //  rates
 //
 //  Created by Chimit Zhanchipzhapov on 30/08/2018.
@@ -13,7 +13,7 @@ import RxCocoa
 
 typealias FormatInputed = (String?, Currency) -> String
 
-struct ConvertAmountViewModel: IdentifiableType, Equatable {
+struct ConvertCellViewModel: IdentifiableType, Equatable {
     
     // MARK: Properties
     
@@ -36,7 +36,7 @@ struct ConvertAmountViewModel: IdentifiableType, Equatable {
         return currency
     }
     
-    static func ==(lhs: ConvertAmountViewModel, rhs: ConvertAmountViewModel) -> Bool {
+    static func ==(lhs: ConvertCellViewModel, rhs: ConvertCellViewModel) -> Bool {
         return lhs.currency == rhs.currency
     }
 }

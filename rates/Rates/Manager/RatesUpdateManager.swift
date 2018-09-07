@@ -26,11 +26,10 @@ class RatesUpdateManager: IRatesUpdateManager {
     
     func configureBase(_ baseCurrency: Observable<Currency>, timer: Observable<UInt64>) -> Observable<IRatesInfo?> {
         let result = Observable.combineLatest(timer, baseCurrency)
-            .flatMapFirst(weak: self) { $0.ratesService.loadRequest(currency: $1.1) }
+            .flatMapFirst(weak: self) { $0.ratesService.loadRequest(currency: $1.1).catchErrorJustReturn(nil) }
         
         let nulledRates: Observable<IRatesInfo?> = baseCurrency.map { _ in return nil }
         
-        return Observable.merge(nulledRates, result)
+        return Observable.merge(nulledRates, result )
     }
-    
 }

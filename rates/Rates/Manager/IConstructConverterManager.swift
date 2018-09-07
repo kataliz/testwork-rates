@@ -10,5 +10,5 @@ import Foundation
 import RxSwift
 
 protocol IConstructConverterManager {
-    func construct(rates: Observable<IRatesInfo>) -> Observable<[ConvertAmountViewModel]>
+    func construct(rates: Observable<IRatesInfo>) -> Observable<[ConvertCellViewModel]>
 }

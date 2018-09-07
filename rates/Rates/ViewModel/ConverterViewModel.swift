@@ -33,13 +33,12 @@ class ConverterViewModel: IConverterViewModel {
         
         let rates = updateManager.configureBase(selectCurrency, period: 1.0).share(replay: 1)
         let viewModels = constructManager.construct(rates: rates.ignoreNil().first()).share(replay: 1)
+        let sortedViewModels = selectViewModel.sortToFirst(viewModels)
         
         let combineInfo = CombineInfo(viewModels: viewModels, select: selectViewModel, currency: selectCurrency, rates: rates)
         let connected = combineInputManager.connectInputs(combineInfo)
         
-        let sortedViewModels = selectViewModel.scanRearange(viewModels)
-        
-        return Output(viewModels: sortedViewModels, error: connected)
+        return Output(viewModels: sortedViewModels, hold: connected)
     }
 }
 

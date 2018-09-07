@@ -56,10 +56,14 @@ extension ObservableType {
     func wrapAsObservable() -> Observable<Observable<Self.E>> {
         return Observable.just(self.asObservable())
     }
+    
+    func filterOn<T>(_ observable: Observable<T>, selector: @escaping (E, T) -> Bool) -> Observable<E> {
+        return withLatestFrom(observable) { ($0, $1) }.filter(selector).map( { $0.0 })
+    }
 }
 
 extension ObservableType where E: Equatable {
-    func scanRearange(_ items: Observable<[E]>) -> Observable<[E]> {
+    func sortToFirst(_ items: Observable<[E]>) -> Observable<[E]> {
         return Observable.combineLatest(items, self.wrapAsObservable()).flatMap { (arguments) -> Observable<[E]> in
             let (items, itemFirst) = arguments
             return itemFirst.scan(items, accumulator: { (result, selected) in
@@ -72,6 +76,30 @@ extension ObservableType where E: Equatable {
 extension Observable {
     static func timer(_ period: RxTimeInterval) -> Observable<UInt64> {
         return Observable<UInt64>.timer(0, period: period, scheduler: MainScheduler.instance)
+    }
+    
+    static func combineLatest<O1,O2: OptionalType>(_ source1: Observable<O1>, andWaitValueIn source2: Observable<O2>) -> Observable<(O1,O2.Wrapped)> {
+        return Observable<(O1,O2)>.combineLatest(source1, source2) { (value1: O1, value2: O2) in
+            return (value1, value2)
+            }.flatMap { (arg) -> Observable<(O1,O2.Wrapped)> in
+                let (value1, value2) = arg
+                return value2.optional.map { Observable<(O1,O2.Wrapped)>.just((value1,$0)) } ?? Observable<(O1,O2.Wrapped)>.never()
+            }
+    }
+}
+
+extension Observable {
+    static func formatInputed(_ observable: Observable<InputedPair>, formatter: ICurrencyFormatter) -> Observable<Decimal?> {
+        return observable.map {(inputed) -> Decimal? in
+            return inputed.0.map { formatter.amount(from: $0) } ?? nil
+        }
+    }
+}
+
+extension ConvertCellViewModel {
+    func inputChanged() -> Observable<InputedPair> {
+        let currency = self.currency
+        return text.asObservable().distinctUntilChanged().map { ($0, currency) }
     }
 }
 

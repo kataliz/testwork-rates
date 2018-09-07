@@ -25,13 +25,13 @@ class ConstructConverterManager: IConstructConverterManager {
     
     // MARK: IConstructConverterManager implementation
     
-    func construct(rates: Observable<IRatesInfo>) -> Observable<[ConvertAmountViewModel]> {
-        return rates.flatMap(weak: self, selector: { (tSelf, info) -> Observable<[ConvertAmountViewModel]> in
+    func construct(rates: Observable<IRatesInfo>) -> Observable<[ConvertCellViewModel]> {
+        return rates.flatMap(weak: self, selector: { (tSelf, info) -> Observable<[ConvertCellViewModel]> in
             return Observable.from(optional: tSelf.constructViewModels(from: info))
         })
     }
     
-    private func constructViewModels(from rates: IRatesInfo) -> [ConvertAmountViewModel] {
+    private func constructViewModels(from rates: IRatesInfo) -> [ConvertCellViewModel] {
         let info = currencyInfo
         let formatting: FormatInputed =  {[weak formatter] (text, currency) in
             guard let text = text, let formatter = formatter else {
@@ -43,7 +43,7 @@ class ConstructConverterManager: IConstructConverterManager {
         
         return rates.allCurrencies.map({ (currency) in
             let name = info.name(for: currency)
-            return ConvertAmountViewModel(currency: currency, name: name, formatInputed: formatting)
+            return ConvertCellViewModel(currency: currency, name: name, formatInputed: formatting)
         })
     }
 }

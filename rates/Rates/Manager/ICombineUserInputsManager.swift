@@ -9,13 +9,6 @@
 import Foundation
 import RxSwift
 
-struct CombineInfo {
-    var viewModels: Observable<[ConvertAmountViewModel]>
-    var select: Observable<ConvertAmountViewModel>
-    var currency: Observable<Currency>
-    var rates: Observable<IRatesInfo?>
-}
-
 protocol ICombineUserInputsManager {
-    func connectInputs(_ combineInfo: CombineInfo) -> Observable<String>
+    func connectInputs(_ combineInfo: CombineInfo) -> Observable<Void>
 }

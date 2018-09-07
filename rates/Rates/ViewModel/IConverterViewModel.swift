@@ -14,10 +14,10 @@ protocol IConverterViewModel {
 }
 
 struct Input {
-    let didSelect: Observable<ConvertAmountViewModel>
+    let didSelect: Observable<ConvertCellViewModel>
 }
 
 struct Output {
-    let viewModels: Observable<[ConvertAmountViewModel]>
-    let error: Observable<String>
+    let viewModels: Observable<[ConvertCellViewModel]>
+    let hold: Observable<Void>
 }

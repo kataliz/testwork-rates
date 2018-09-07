@@ -10,8 +10,6 @@
 		4C447B610FFDBBD59DE5C3C4 /* Pods_rates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D3B421490D480C36B4370A /* Pods_rates.framework */; };
 		736314898F0A7C8E9E0EB557 /* Pods_ratesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D17ECE9E140CE7AF29766446 /* Pods_ratesTests.framework */; };
 		85253E8F213FF9A1009BC33B /* ConvertViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253E8E213FF9A1009BC33B /* ConvertViewModelTest.swift */; };
-		85253E92213FFDE7009BC33B /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253E91213FFDE7009BC33B /* MockService.swift */; };
-		85253E94213FFE6C009BC33B /* MockRatesInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253E93213FFE6C009BC33B /* MockRatesInfo.swift */; };
 		85253E962140562F009BC33B /* UpdateManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253E952140562F009BC33B /* UpdateManagerTest.swift */; };
 		85253E9821405F8D009BC33B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253E9721405F8D009BC33B /* main.swift */; };
 		85253E9B2140FEAF009BC33B /* IRxRatesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253E9A2140FEAF009BC33B /* IRxRatesService.swift */; };
@@ -21,6 +19,7 @@
 		85253EA421411BC4009BC33B /* ConstructConverterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253EA321411BC4009BC33B /* ConstructConverterManager.swift */; };
 		85253EA6214123B2009BC33B /* ICombineUserInputsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253EA5214123B2009BC33B /* ICombineUserInputsManager.swift */; };
 		85253EA82141266E009BC33B /* CombineUserInputsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253EA72141266E009BC33B /* CombineUserInputsManager.swift */; };
+		857BC1C42141C52C00108F0A /* ICurrencyFormatter+fillOutputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857BC1C32141C52C00108F0A /* ICurrencyFormatter+fillOutputs.swift */; };
 		8594F927213BF9A100227106 /* NumberFormatter+reset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594F926213BF9A100227106 /* NumberFormatter+reset.swift */; };
 		8594F929213C082800227106 /* RatesUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594F928213C082800227106 /* RatesUpdateManager.swift */; };
 		8594F92B213C083A00227106 /* IRatesUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594F92A213C083A00227106 /* IRatesUpdateManager.swift */; };
@@ -52,7 +51,7 @@
 		85A233FC21380E1300D5DB20 /* ConvertAmountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85A233FB21380E1300D5DB20 /* ConvertAmountCell.xib */; };
 		85A233FF2138128000D5DB20 /* UILabel+style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A233FE2138128000D5DB20 /* UILabel+style.swift */; };
 		85A234012138138800D5DB20 /* UITextField+style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A234002138138800D5DB20 /* UITextField+style.swift */; };
-		85A234032138146F00D5DB20 /* ConvertAmountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A234022138146F00D5DB20 /* ConvertAmountViewModel.swift */; };
+		85A234032138146F00D5DB20 /* ConvertCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A234022138146F00D5DB20 /* ConvertCellViewModel.swift */; };
 		85A23407213817EA00D5DB20 /* ConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A23406213817EA00D5DB20 /* ConverterViewModel.swift */; };
 		85A2340A2138216200D5DB20 /* ICurrencyInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A234092138216200D5DB20 /* ICurrencyInfoService.swift */; };
 		85A2340D213821C200D5DB20 /* CurrencyInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2340C213821C200D5DB20 /* CurrencyInfoService.swift */; };
@@ -60,6 +59,9 @@
 		85A2341421398D3300D5DB20 /* ICurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2341321398D3200D5DB20 /* ICurrencyFormatter.swift */; };
 		85A2341621398E7200D5DB20 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2341521398E7200D5DB20 /* CurrencyFormatter.swift */; };
 		85A234182139A81500D5DB20 /* String+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A234172139A81500D5DB20 /* String+helpers.swift */; };
+		85A3A7BA21414BF3004D3F86 /* ICombineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3A7B921414BF3004D3F86 /* ICombineInfo.swift */; };
+		85A3A7BB21414EDE004D3F86 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253E91213FFDE7009BC33B /* MockService.swift */; };
+		85A3A7BC21414EE2004D3F86 /* MockRatesInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253E93213FFE6C009BC33B /* MockRatesInfo.swift */; };
 		85E00EEA2136E7FE00D88B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E00EE92136E7FE00D88B47 /* AppDelegate.swift */; };
 		85E00EEC2136E7FE00D88B47 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E00EEB2136E7FE00D88B47 /* ConverterViewController.swift */; };
 		85E00EEF2136E7FE00D88B47 /* Converter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85E00EED2136E7FE00D88B47 /* Converter.storyboard */; };
@@ -97,6 +99,7 @@
 		85253EA321411BC4009BC33B /* ConstructConverterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructConverterManager.swift; sourceTree = "<group>"; };
 		85253EA5214123B2009BC33B /* ICombineUserInputsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICombineUserInputsManager.swift; sourceTree = "<group>"; };
 		85253EA72141266E009BC33B /* CombineUserInputsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineUserInputsManager.swift; sourceTree = "<group>"; };
+		857BC1C32141C52C00108F0A /* ICurrencyFormatter+fillOutputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ICurrencyFormatter+fillOutputs.swift"; sourceTree = "<group>"; };
 		8594F926213BF9A100227106 /* NumberFormatter+reset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+reset.swift"; sourceTree = "<group>"; };
 		8594F928213C082800227106 /* RatesUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesUpdateManager.swift; sourceTree = "<group>"; };
 		8594F92A213C083A00227106 /* IRatesUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRatesUpdateManager.swift; sourceTree = "<group>"; };
@@ -128,7 +131,7 @@
 		85A233FB21380E1300D5DB20 /* ConvertAmountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConvertAmountCell.xib; sourceTree = "<group>"; };
 		85A233FE2138128000D5DB20 /* UILabel+style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+style.swift"; sourceTree = "<group>"; };
 		85A234002138138800D5DB20 /* UITextField+style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+style.swift"; sourceTree = "<group>"; };
-		85A234022138146F00D5DB20 /* ConvertAmountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertAmountViewModel.swift; sourceTree = "<group>"; };
+		85A234022138146F00D5DB20 /* ConvertCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertCellViewModel.swift; sourceTree = "<group>"; };
 		85A23406213817EA00D5DB20 /* ConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewModel.swift; sourceTree = "<group>"; };
 		85A234092138216200D5DB20 /* ICurrencyInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICurrencyInfoService.swift; sourceTree = "<group>"; };
 		85A2340C213821C200D5DB20 /* CurrencyInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyInfoService.swift; sourceTree = "<group>"; };
@@ -136,6 +139,7 @@
 		85A2341321398D3200D5DB20 /* ICurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICurrencyFormatter.swift; sourceTree = "<group>"; };
 		85A2341521398E7200D5DB20 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		85A234172139A81500D5DB20 /* String+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+helpers.swift"; sourceTree = "<group>"; };
+		85A3A7B921414BF3004D3F86 /* ICombineInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICombineInfo.swift; sourceTree = "<group>"; };
 		85E00EE62136E7FE00D88B47 /* rates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E00EE92136E7FE00D88B47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85E00EEB2136E7FE00D88B47 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
@@ -191,9 +195,10 @@
 		85253E85213FF957009BC33B /* ratesTests */ = {
 			isa = PBXGroup;
 			children = (
+				85A3A7BD21414EF2004D3F86 /* Helpers */,
+				85253E90213FFDD7009BC33B /* Mock */,
 				85253E952140562F009BC33B /* UpdateManagerTest.swift */,
 				85253E8E213FF9A1009BC33B /* ConvertViewModelTest.swift */,
-				85253E9E2141045E009BC33B /* Observable+helper.swift */,
 				85253E88213FF957009BC33B /* Info.plist */,
 			);
 			path = ratesTests;
@@ -256,7 +261,6 @@
 		85A233C92137E8C500D5DB20 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				85253E90213FFDD7009BC33B /* Mock */,
 				85A23410213929B200D5DB20 /* Currency */,
 				85A2340B2138216D00D5DB20 /* Helper */,
 				85A23408213820B200D5DB20 /* Formatter */,
@@ -370,7 +374,7 @@
 			children = (
 				8594F947213E764F00227106 /* IConverterViewModel.swift */,
 				85A23406213817EA00D5DB20 /* ConverterViewModel.swift */,
-				85A234022138146F00D5DB20 /* ConvertAmountViewModel.swift */,
+				85A234022138146F00D5DB20 /* ConvertCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -378,6 +382,7 @@
 		85A233F82138079000D5DB20 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				85A3A7B921414BF3004D3F86 /* ICombineInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				8594F93F213D7A7900227106 /* NSObject+className.swift */,
 				8594F945213DA34C00227106 /* NSLayoutConstraints+helpers.swift */,
 				85F2665E213E95B10074B9E8 /* Observable+helpers.swift */,
+				857BC1C32141C52C00108F0A /* ICurrencyFormatter+fillOutputs.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -441,6 +447,14 @@
 				85E00EEB2136E7FE00D88B47 /* ConverterViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		85A3A7BD21414EF2004D3F86 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				85253E9E2141045E009BC33B /* Observable+helper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		85E00EDD2136E7FE00D88B47 = {
@@ -672,7 +686,9 @@
 			files = (
 				85253E9F2141045E009BC33B /* Observable+helper.swift in Sources */,
 				85253E962140562F009BC33B /* UpdateManagerTest.swift in Sources */,
+				85A3A7BC21414EE2004D3F86 /* MockRatesInfo.swift in Sources */,
 				85253E8F213FF9A1009BC33B /* ConvertViewModelTest.swift in Sources */,
+				85A3A7BB21414EDE004D3F86 /* MockService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,10 +703,10 @@
 				85A233EA2137F90900D5DB20 /* UBRate.swift in Sources */,
 				8594F93C213D783400227106 /* UITableView+helpers.swift in Sources */,
 				85A2340D213821C200D5DB20 /* CurrencyInfoService.swift in Sources */,
-				85253E94213FFE6C009BC33B /* MockRatesInfo.swift in Sources */,
 				85A233E42137F7FF00D5DB20 /* Currency.swift in Sources */,
 				85A2341621398E7200D5DB20 /* CurrencyFormatter.swift in Sources */,
 				85A234182139A81500D5DB20 /* String+helpers.swift in Sources */,
+				85A3A7BA21414BF3004D3F86 /* ICombineInfo.swift in Sources */,
 				85A233D42137EDB200D5DB20 /* DataRequest+Unbox.swift in Sources */,
 				85253E9D2140FEC7009BC33B /* RxRatesService.swift in Sources */,
 				8594F93A213D072E00227106 /* TwoWayBinding.swift in Sources */,
@@ -706,10 +722,9 @@
 				85F2665F213E95B10074B9E8 /* Observable+helpers.swift in Sources */,
 				85A233DC2137EFE000D5DB20 /* ApiPath.swift in Sources */,
 				85A233E62137F86C00D5DB20 /* IRate.swift in Sources */,
-				85A234032138146F00D5DB20 /* ConvertAmountViewModel.swift in Sources */,
+				85A234032138146F00D5DB20 /* ConvertCellViewModel.swift in Sources */,
 				8594F92B213C083A00227106 /* IRatesUpdateManager.swift in Sources */,
 				8594F929213C082800227106 /* RatesUpdateManager.swift in Sources */,
-				85253E92213FFDE7009BC33B /* MockService.swift in Sources */,
 				85253EA221411B3B009BC33B /* IConstructConverterManager.swift in Sources */,
 				85A233E82137F88100D5DB20 /* UBRatesInfo.swift in Sources */,
 				85A233E22137F7E700D5DB20 /* IRatesInfo.swift in Sources */,
@@ -720,6 +735,7 @@
 				85E00EEA2136E7FE00D88B47 /* AppDelegate.swift in Sources */,
 				8594F944213DA10F00227106 /* UnderlineTextField.swift in Sources */,
 				8594F927213BF9A100227106 /* NumberFormatter+reset.swift in Sources */,
+				857BC1C42141C52C00108F0A /* ICurrencyFormatter+fillOutputs.swift in Sources */,
 				85A233CE2137EAEE00D5DB20 /* IResourceInfo.swift in Sources */,
 				85A233F22137FDC800D5DB20 /* ApiResponse+Unboxable.swift in Sources */,
 				8594F946213DA34C00227106 /* NSLayoutConstraints+helpers.swift in Sources */,
