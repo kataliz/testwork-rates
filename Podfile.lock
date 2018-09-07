@@ -2,7 +2,8 @@ PODS:
   - Alamofire (4.7.3)
   - Differentiator (3.0.2)
   - Kingfisher (4.8.1)
-  - MaterialTextField (1.0.1)
+  - RxBlocking (4.2.0):
+    - RxSwift (~> 4.0)
   - RxCocoa (4.2.0):
     - RxSwift (~> 4.0)
   - RxDataSources (3.0.2):
@@ -10,15 +11,18 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.2.0)
+  - RxTest (4.2.0):
+    - RxSwift (~> 4.0)
   - Unbox (3.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - Kingfisher (~> 4.0)
-  - MaterialTextField
+  - RxBlocking (~> 4.0)
   - RxCocoa (~> 4.0)
   - RxDataSources
   - RxSwift (~> 4.0)
+  - RxTest (~> 4.0)
   - Unbox
 
 SPEC REPOS:
@@ -26,22 +30,24 @@ SPEC REPOS:
     - Alamofire
     - Differentiator
     - Kingfisher
-    - MaterialTextField
+    - RxBlocking
     - RxCocoa
     - RxDataSources
     - RxSwift
+    - RxTest
     - Unbox
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
-  MaterialTextField: f1a0786588e4d3610cb9bb62d2adbe9777cebbf9
+  RxBlocking: e339d8a6e752e25ade95ff858466c55436668f59
   RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
+  RxTest: 8da864c0ee47534f586ff18fb0c7e5b2f1fe5023
   Unbox: 9ed33b2a31f7a8a049f54b94d40c4a52a28c4d9d
 
-PODFILE CHECKSUM: c558b6c15900b9fa2a03a45d778864d88b3c08cd
+PODFILE CHECKSUM: 9d16ac8a7f7f7c230876fe790d1cda216d52a66a
 
 COCOAPODS: 1.5.3

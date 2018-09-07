@@ -21,6 +21,8 @@ target 'rates' do
     pod 'RxDataSources'
 
   target 'ratesTests' do
+      pod 'RxBlocking', '~> 4.0'
+      pod 'RxTest',     '~> 4.0'
     inherit! :search_paths
   end
 end

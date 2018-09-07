@@ -24,16 +24,22 @@ class RootFactory {
     public lazy var currencyFormatter: ICurrencyFormatter = CurrencyFormatter(maxLenght: 9)
     
     public var converterViewModel: ConverterViewModel {
-        return ConverterViewModel(
-            updateManager: ratesUpdateManager,
-            formatter: currencyFormatter,
-            currencyInfoService: currencyInfoService
-        )
+        return ConverterViewModel(updateManager: ratesUpdateManager, constructManager: converterConstructManager,
+                                  combineInputManager: combineConvertersManager)
     }
     
     // MARK: Computed
     
     private var ratesUpdateManager: IRatesUpdateManager {
-        return RatesUpdateManager(ratesService: ratesSerivce)
+        let rxService = RxRatesService.init(service: ratesSerivce)
+        return RatesUpdateManager(ratesService: rxService)
+    }
+    
+    private var converterConstructManager: IConstructConverterManager {
+        return ConstructConverterManager(currencyInfo: currencyInfoService, formatter: currencyFormatter)
+    }
+    
+    private var combineConvertersManager: ICombineUserInputsManager {
+        return CombineUserInputsManager(formatter: currencyFormatter)
     }
 }

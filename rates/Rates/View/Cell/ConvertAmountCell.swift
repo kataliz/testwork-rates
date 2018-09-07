@@ -20,7 +20,7 @@ class ConvertAmountCell: UITableViewCell, UITextFieldDelegate {
     
     // MARK: Properties
     
-    private var viewModel: ConvertAmountViewModel?
+    private var viewModel: ConvertCellViewModel?
     private var dispose = DisposeBag()
     
     // MARK: Lifecycle
@@ -37,10 +37,11 @@ class ConvertAmountCell: UITableViewCell, UITextFieldDelegate {
     
     // MARK: Configure
     
-    public func configure(viewModel: ConvertAmountViewModel) {
+    public func configure(viewModel: ConvertCellViewModel) {
         self.viewModel = viewModel
         code.text = viewModel.currency
         name.text = viewModel.name
+        
         dispose.insert(input.rx.text <-> viewModel.text)
     }
     
