@@ -41,6 +41,7 @@ class ConvertAmountCell: UITableViewCell, UITextFieldDelegate {
         self.viewModel = viewModel
         code.text = viewModel.currency
         name.text = viewModel.name
+        
         dispose.insert(input.rx.text <-> viewModel.text)
     }
     

@@ -16,7 +16,7 @@ protocol ICombineInfo {
     var rates: Observable<IRatesInfo?> { get }
 }
 
-struct CombineInfo {
+struct CombineInfo: ICombineInfo {
     let viewModels: Observable<[ConvertCellViewModel]>
     let select: Observable<ConvertCellViewModel>
     let currency: Observable<Currency>

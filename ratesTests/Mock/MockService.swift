@@ -10,6 +10,8 @@ import Foundation
 import Alamofire
 import RxSwift
 
+@testable import rates
+
 class MockService: IRxRatesService {
 
     var loadRequestSubject = PublishSubject<IRatesInfo?>()

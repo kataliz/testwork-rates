@@ -20,6 +20,11 @@
 		85253EA6214123B2009BC33B /* ICombineUserInputsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253EA5214123B2009BC33B /* ICombineUserInputsManager.swift */; };
 		85253EA82141266E009BC33B /* CombineUserInputsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85253EA72141266E009BC33B /* CombineUserInputsManager.swift */; };
 		857BC1C42141C52C00108F0A /* ICurrencyFormatter+fillOutputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857BC1C32141C52C00108F0A /* ICurrencyFormatter+fillOutputs.swift */; };
+		857BC1C62142583300108F0A /* ConstructConverterManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857BC1C52142583300108F0A /* ConstructConverterManagerTest.swift */; };
+		857BC1C821425A0E00108F0A /* MockCurrencyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857BC1C721425A0E00108F0A /* MockCurrencyInfo.swift */; };
+		857BC1CA21425A4900108F0A /* MockFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857BC1C921425A4900108F0A /* MockFormatter.swift */; };
+		857BC1CC2142665400108F0A /* CombineUserInputsManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857BC1CB2142665400108F0A /* CombineUserInputsManagerTest.swift */; };
+		857BC1D621429B6900108F0A /* MockUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857BC1D521429B6900108F0A /* MockUpdateManager.swift */; };
 		8594F927213BF9A100227106 /* NumberFormatter+reset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594F926213BF9A100227106 /* NumberFormatter+reset.swift */; };
 		8594F929213C082800227106 /* RatesUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594F928213C082800227106 /* RatesUpdateManager.swift */; };
 		8594F92B213C083A00227106 /* IRatesUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594F92A213C083A00227106 /* IRatesUpdateManager.swift */; };
@@ -100,6 +105,11 @@
 		85253EA5214123B2009BC33B /* ICombineUserInputsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICombineUserInputsManager.swift; sourceTree = "<group>"; };
 		85253EA72141266E009BC33B /* CombineUserInputsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineUserInputsManager.swift; sourceTree = "<group>"; };
 		857BC1C32141C52C00108F0A /* ICurrencyFormatter+fillOutputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ICurrencyFormatter+fillOutputs.swift"; sourceTree = "<group>"; };
+		857BC1C52142583300108F0A /* ConstructConverterManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructConverterManagerTest.swift; sourceTree = "<group>"; };
+		857BC1C721425A0E00108F0A /* MockCurrencyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCurrencyInfo.swift; sourceTree = "<group>"; };
+		857BC1C921425A4900108F0A /* MockFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFormatter.swift; sourceTree = "<group>"; };
+		857BC1CB2142665400108F0A /* CombineUserInputsManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineUserInputsManagerTest.swift; sourceTree = "<group>"; };
+		857BC1D521429B6900108F0A /* MockUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUpdateManager.swift; sourceTree = "<group>"; };
 		8594F926213BF9A100227106 /* NumberFormatter+reset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+reset.swift"; sourceTree = "<group>"; };
 		8594F928213C082800227106 /* RatesUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesUpdateManager.swift; sourceTree = "<group>"; };
 		8594F92A213C083A00227106 /* IRatesUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRatesUpdateManager.swift; sourceTree = "<group>"; };
@@ -198,6 +208,8 @@
 				85A3A7BD21414EF2004D3F86 /* Helpers */,
 				85253E90213FFDD7009BC33B /* Mock */,
 				85253E952140562F009BC33B /* UpdateManagerTest.swift */,
+				857BC1CB2142665400108F0A /* CombineUserInputsManagerTest.swift */,
+				857BC1C52142583300108F0A /* ConstructConverterManagerTest.swift */,
 				85253E8E213FF9A1009BC33B /* ConvertViewModelTest.swift */,
 				85253E88213FF957009BC33B /* Info.plist */,
 			);
@@ -209,6 +221,9 @@
 			children = (
 				85253E91213FFDE7009BC33B /* MockService.swift */,
 				85253E93213FFE6C009BC33B /* MockRatesInfo.swift */,
+				857BC1C721425A0E00108F0A /* MockCurrencyInfo.swift */,
+				857BC1C921425A4900108F0A /* MockFormatter.swift */,
+				857BC1D521429B6900108F0A /* MockUpdateManager.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -684,11 +699,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				857BC1C62142583300108F0A /* ConstructConverterManagerTest.swift in Sources */,
 				85253E9F2141045E009BC33B /* Observable+helper.swift in Sources */,
 				85253E962140562F009BC33B /* UpdateManagerTest.swift in Sources */,
 				85A3A7BC21414EE2004D3F86 /* MockRatesInfo.swift in Sources */,
+				857BC1D621429B6900108F0A /* MockUpdateManager.swift in Sources */,
+				857BC1CA21425A4900108F0A /* MockFormatter.swift in Sources */,
+				857BC1CC2142665400108F0A /* CombineUserInputsManagerTest.swift in Sources */,
 				85253E8F213FF9A1009BC33B /* ConvertViewModelTest.swift in Sources */,
 				85A3A7BB21414EDE004D3F86 /* MockService.swift in Sources */,
+				857BC1C821425A0E00108F0A /* MockCurrencyInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
