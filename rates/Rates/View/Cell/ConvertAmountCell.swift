@@ -33,6 +33,7 @@ class ConvertAmountCell: UITableViewCell, UITextFieldDelegate {
     override func prepareForReuse() {
         super.prepareForReuse()
         dispose = DisposeBag()
+        input.text = nil
     }
     
     // MARK: Configure
