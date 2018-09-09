@@ -8,14 +8,18 @@
 
 import Foundation
 import Alamofire
-
-// MARK: Simple container
+import RxSwift
 
 class RootFactory {
     
+    // MARK: Scheduler
+    
+    private lazy var queue = DispatchQueue.global(qos: .background)
+    private lazy var scheduler = ConcurrentDispatchQueueScheduler(queue: queue)
+    
     // MARK: Common
     
-    private lazy var network: INetworkService = NetworkService(sessionManager: SessionManager.default)
+    private lazy var network: INetworkService = NetworkService(sessionManager: SessionManager.default, queue: queue)
     
     // MARK: Dependencies
     
@@ -25,14 +29,14 @@ class RootFactory {
     
     public var converterViewModel: ConverterViewModel {
         return ConverterViewModel(updateManager: ratesUpdateManager, constructManager: converterConstructManager,
-                                  combineInputManager: combineConvertersManager)
+                                  combineInputManager: combineConvertersManager, scheduler: scheduler)
     }
     
     // MARK: Computed
     
     private var ratesUpdateManager: IRatesUpdateManager {
-        let rxService = RxRatesService.init(service: ratesSerivce)
-        return RatesUpdateManager(ratesService: rxService)
+        let rxService = RxRatesService(service: ratesSerivce)
+        return RatesUpdateManager(ratesService: rxService, scheduler: scheduler)
     }
     
     private var converterConstructManager: IConstructConverterManager {

@@ -14,7 +14,7 @@ infix operator <->
 
 func <-> <T: Comparable>(property: ControlProperty<T?>, variable: Variable<T?>) -> Disposable {
     let bindToUiDisposable = variable.asObservable().bind(to: property)
-    let bindToVariable = property.filter( { $0 != variable.value }).subscribe(onNext: { (value) in
+    let bindToVariable = property.observeOn(MainScheduler.asyncInstance).filter( { $0 != variable.value }).subscribe(onNext: { (value) in
         variable.value = value
     }, onCompleted: {
         bindToUiDisposable.dispose()

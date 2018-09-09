@@ -17,20 +17,21 @@ class ConvertViewModelTest: XCTestCase {
     
     var viewModel: ConverterViewModel!
     var updateManager: MockUpdateManager!
+    let scheduler = TestScheduler(initialClock: 0)
     
     override func setUp() {
         super.setUp()
         updateManager = MockUpdateManager()
-        viewModel = ConverterViewModel(updateManager: updateManager, constructManager: ConstructConverterManager(currencyInfo: MockCurrencyInfo(), formatter: MockFormatter()), combineInputManager: CombineUserInputsManager(formatter: MockFormatter()))
+        viewModel = ConverterViewModel(updateManager: updateManager, constructManager: ConstructConverterManager(currencyInfo: MockCurrencyInfo(), formatter: MockFormatter()), combineInputManager: CombineUserInputsManager(formatter: MockFormatter()), scheduler: scheduler)
     }
     
     override func tearDown() {
         super.tearDown()
-        updateManager.subject = PublishSubject<IRatesInfo?>()
+        updateManager.subject = PublishSubject<IRatesInfo>()
+        scheduler.stop()
     }
     
     func testTransform() {
-        let scheduler = TestScheduler(initialClock: 0)
         let select = PublishSubject<ConvertCellViewModel>()
         
         scheduler.scheduleAt(201) {
@@ -47,7 +48,6 @@ class ConvertViewModelTest: XCTestCase {
     }
     
     func testSelect() {
-        let scheduler = TestScheduler(initialClock: 0)
         let select = PublishSubject<ConvertCellViewModel>()
         
         scheduler.scheduleAt(201) {

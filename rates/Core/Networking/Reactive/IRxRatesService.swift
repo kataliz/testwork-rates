@@ -10,5 +10,5 @@ import Foundation
 import RxSwift
 
 protocol IRxRatesService {
-    func loadRequest(currency: Currency) -> Observable<IRatesInfo?>
+    func loadRequest(currency: Currency) -> Observable<IRatesInfo>
 }

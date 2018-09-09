@@ -15,21 +15,23 @@ class RatesUpdateManager: IRatesUpdateManager {
     // MARK: Dependencies
 
     private let ratesService: IRxRatesService
+    private let scheduler: SchedulerType
     
     // MARK: Lifecycle
     
-    init(ratesService: IRxRatesService) {
+    init(ratesService: IRxRatesService, scheduler: SchedulerType) {
         self.ratesService = ratesService
+        self.scheduler = scheduler
     }
     
     // MARK: IRatesUpdateManager implementation
     
-    func configureBase(_ baseCurrency: Observable<Currency>, timer: Observable<UInt64>) -> Observable<IRatesInfo?> {
-        let result = Observable.combineLatest(timer, baseCurrency)
-            .flatMapFirst(weak: self) { $0.ratesService.loadRequest(currency: $1.1).catchErrorJustReturn(nil) }
+    func configureBase(_ baseCurrency: Observable<Currency>, timer: Observable<UInt64>) -> Observable<IRatesInfo> {
+        let result = Observable.combineLatest(timer.observeOn(scheduler), baseCurrency)
+            .flatMapFirst(weak: self) { (cSelf, info) -> Observable<IRatesInfo> in
+                cSelf.ratesService.loadRequest(currency: info.1)
+            }
         
-        let nulledRates: Observable<IRatesInfo?> = baseCurrency.map { _ in return nil }
-        
-        return Observable.merge(nulledRates, result )
+        return result
     }
 }

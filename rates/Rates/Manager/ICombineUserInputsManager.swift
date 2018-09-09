@@ -12,9 +12,3 @@ import RxSwift
 protocol ICombineUserInputsManager {
     func connectInputs(_ combineInfo: ICombineInfo, fillOn: SchedulerType) -> Observable<Void>
 }
-
-extension ICombineUserInputsManager {
-    func connectInputs(_ combineInfo: ICombineInfo) -> Observable<Void> {
-        return connectInputs(combineInfo, fillOn: MainScheduler.asyncInstance)
-    }
-}

@@ -21,7 +21,7 @@ class CombineUserInputsManagerTest: XCTestCase {
     var items = PublishSubject<[ConvertCellViewModel]>()
     var select = PublishSubject<ConvertCellViewModel>()
     var currency = PublishSubject<Currency>()
-    var rates = PublishSubject<IRatesInfo?>()
+    var rates = PublishSubject<IRatesInfo>()
     var info: ICombineInfo!
     
     var firstModel: ConvertCellViewModel!
@@ -50,7 +50,7 @@ class CombineUserInputsManagerTest: XCTestCase {
         items = PublishSubject<[ConvertCellViewModel]>()
         select = PublishSubject<ConvertCellViewModel>()
         currency = PublishSubject<Currency>()
-        rates = PublishSubject<IRatesInfo?>()
+        rates = PublishSubject<IRatesInfo>()
         info = CombineInfo(viewModels: items.asObservable(), select: select.asObservable(), currency: currency.asObservable(), rates: rates.asObservable())
         firstModel.text.value = nil
         secondModel.text.value = nil

@@ -13,9 +13,9 @@ import RxSwift
 
 class MockUpdateManager: IRatesUpdateManager {
     
-    var subject = PublishSubject<IRatesInfo?>()
+    var subject = PublishSubject<IRatesInfo>()
     
-    func configureBase(_ baseCurrency: Observable<Currency>, timer: Observable<UInt64>) -> Observable<IRatesInfo?> {
+    func configureBase(_ baseCurrency: Observable<Currency>, timer: Observable<UInt64>) -> Observable<IRatesInfo> {
         return subject.asObservable()
     }
 }

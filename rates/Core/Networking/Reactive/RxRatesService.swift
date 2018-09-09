@@ -23,15 +23,14 @@ class RxRatesService: IRxRatesService {
     
     // MARK: IRxRatesService implementation
     
-    func loadRequest(currency: Currency) -> Observable<IRatesInfo?> {
-        return Observable<IRatesInfo?>.create({[weak self] (observer) -> Disposable in
+    func loadRequest(currency: Currency) -> Observable<IRatesInfo> {
+        return Observable<IRatesInfo>.create({[weak self] (observer) -> Disposable in
             self?.service.loadRates(base: currency, completion: { (result) in
                 if let rates = result.value {
                     observer.onNext(rates)
-                    observer.onCompleted()
-                } else if let error = result.error {
-                    observer.onError(error)
                 }
+                
+                observer.onCompleted()
             })
             
             return Disposables.create()

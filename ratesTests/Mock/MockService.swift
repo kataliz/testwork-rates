@@ -14,13 +14,13 @@ import RxSwift
 
 class MockService: IRxRatesService {
 
-    var loadRequestSubject = PublishSubject<IRatesInfo?>()
+    var loadRequestSubject = PublishSubject<IRatesInfo>()
     
     func send(rates: IRatesInfo) {
         loadRequestSubject.onNext(rates)
     }
     
-    func loadRequest(currency: Currency) -> Observable<IRatesInfo?> {
+    func loadRequest(currency: Currency) -> Observable<IRatesInfo> {
         return loadRequestSubject.asObservable()
     }
 }

@@ -11,8 +11,8 @@ import Alamofire
 import Unbox
 
 extension Alamofire.DataRequest {
-    func processResponse<T: Unboxable>(_ completion: @escaping ApiResponse<T>) {
-        self.responseJSON { (response) in
+    func processResponse<T: Unboxable>(queue: DispatchQueue, _ completion: @escaping ApiResponse<T>) {
+        self.responseJSON(queue: queue) { (response) in
             switch response.result {
             case .success(let value):
                 guard let unboxed: T = Alamofire.DataRequest.tryUnbox(value: value) else {

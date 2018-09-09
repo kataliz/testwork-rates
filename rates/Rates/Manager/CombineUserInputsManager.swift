@@ -38,12 +38,15 @@ class CombineUserInputsManager: ICombineUserInputsManager {
     
     private func combineTriggers(_ info: ICombineInfo) -> Observable<OutputsTriggered> {
         let userInputs = info.viewModels.flatMap { Observable.merge($0.map { $0.inputChanged() }) }
+        let userInputsFiltered = userInputs.filterOn(info.currency, selector: { $0.1 == $1 })
         let userSelect = info.select.map { ($0.text.value, $0.currency) }
-        let userTriggers = Observable.merge([userInputs, userSelect])
-        let filteredTriggers = userTriggers.filterOn(info.currency, selector: { $0.1 == $1 })
-        let formattedTriggers = Observable<Decimal?>.formatInputed(filteredTriggers, formatter: formatter)
+        let userTriggers = Observable.merge([userInputsFiltered, userSelect])
         
-        return Observable<OutputsTriggered>.combineLatest(formattedTriggers, andWaitValueIn: info.rates)
+        let formattedTriggers = Observable<Decimal?>.formatInputed(userTriggers, formatter: formatter)
+        let amountAndRates = Observable.combineLatest(formattedTriggers, info.rates)
+        let filtered = amountAndRates.filterOn(info.currency, selector: { $1 == $0.1.baseCurrency })
+        
+        return filtered
     }
     
     // MARK: Outputs prepare

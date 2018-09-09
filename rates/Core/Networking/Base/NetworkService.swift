@@ -15,11 +15,13 @@ class NetworkService: INetworkService {
     // MARK: Dependencies
     
     private let sessionManager: SessionManager
+    private let queue: DispatchQueue
     
     // MARK: Memory managment
     
-    init(sessionManager: SessionManager) {
+    init(sessionManager: SessionManager, queue: DispatchQueue) {
         self.sessionManager = sessionManager
+        self.queue = queue
     }
     
     // MARK: INetworkProvider implementation
@@ -27,7 +29,7 @@ class NetworkService: INetworkService {
     func request<T: Unboxable>(info: IResourceInfo, completion: @escaping ApiResponse<T>) {
         let request = constructRequest(info: info)
         
-        request.validate().processResponse(completion)
+        request.validate().processResponse(queue: queue, completion)
     }
     
     private func constructRequest(info: IResourceInfo) -> DataRequest {
